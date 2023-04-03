@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>A64 ISA XML for A-profile Architecture (2022-12)</title>
+    <style type="text/css">
+      body {
+        font-size: small;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="text-align: center;">
+      <h1 style="text-decoration: underline;">
+       A64 ISA XML<br/>
+        for A-profile Architecture<br/>
+        (2022-12)
+      </h1>
+      <h1 style="text-decoration: underline;">19 December 2022</h1>
+    </div>
+    <br/>
+    <h2>Introduction</h2>
+    <p>
+      This is the <span style="font-style: italic;">2022-12</span> release
+      of the A64 ISA XML for A-profile Architecture.
+    <p>
+      The <a href="ISA_A64_xml_A_profile-2022-12/xhtml/notice.html">Proprietary Notice</a>
+      gives details of the terms and conditions under which this package
+      is provided.
+    </p>
+    <p>
+      If you have comments on the content of this package, please send
+      them by e-mail to
+      <a href="mailto:support-aarchv8@arm.com">support-aarchv8@arm.com</a>.
+      Give:
+      <ul>
+        <li>The title, "A64 ISA XML for A-profile Architecture.".</li>
+        <li>The version, "2022-12".</li>
+        <li>A concise explanation of your comments.</li>
+      </ul>
+    </p>
+    <h2>Contents</h2>    <table style="width: 80%; background-color: rgb(223, 223, 224);" border="1" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td rowspan="2">This Version</td>
+          <td>2022-12</td>
+          <td>&nbsp;<a href="ISA_A64_xml_A_profile-2022-12/xhtml/index.html">[HTML]</a></td>
+          <td>&nbsp;<a href="ISA_A64_xml_A_profile-2022-12.pdf">[PDF]</a></td>
+          <td>&nbsp;<a href="ISA_A64_xml_A_profile-2022-12/index.xml">[XML]</a></td>
+        </tr>
+        <tr>
+          <td>with optimized pseudocode</td>
+          <td>&nbsp;<a href="ISA_A64_xml_A_profile-2022-12_OPT/xhtml/index.html">[HTML]</a></td>
+          <td>&nbsp;<a href="ISA_A64_xml_A_profile-2022-12_OPT.pdf">[PDF]</a></td>
+          <td>&nbsp;<a href="ISA_A64_xml_A_profile-2022-12_OPT/index.xml">[XML]</a></td>
+        </tr>
+        <tr>
+          <td rowspan="2">Change Markups</td>
+          <td>2022-12 from 2022-09<br></td>
+          <td>&nbsp;<a href="ISA_A64_xml_A_profile-2022-12/diff-from-ISA_A64_xml_A_profile-2022-09/index.html">[HTML]</a></td>
+          <td>&nbsp;<a href="ISA_A64_xml_A_profile-2022-12-diff-from-ISA_A64_xml_A_profile-2022-09.pdf">[PDF]</a></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>optimized from non-optimized</td>
+          <td>&nbsp;<a href="ISA_A64_xml_A_profile-2022-12_OPT/diff-from-ISA_A64_xml_A_profile-2022-12/index.html">[HTML]</a></td>
+          <td>&nbsp;<a href="ISA_A64_xml_A_profile-2022-12_OPT_diff.pdf">[PDF]</a></td>
+          </tr>
+        <tr>
+          <td>Previous Version</td>
+          <td>2022-09</td>
+          <td>&nbsp;<a href="ISA_A64_xml_A_profile-2022-09/xhtml/index.html">[HTML]</a></td>
+        </tr>
+      </tbody>
+    </table>
+        <h2>Product Status</h2>
+    <p>The information in this release covers multiple versions of the architecture. The content relating to different versions is given different quality ratings.</p>
+    <p>The information relating to the 2022 Extensions of the A-profile Architecture and feature FEAT_MEC is at Alpha quality. Alpha quality means that most major features of the specification are described in this release, but some features and details might be missing.</p>
+    <p>The information relating to the rest of the Architecture is at Beta quality. Beta quality means that all major features of the specification are described, but some details might be missing.</p>
+    
+    <h2>Release notes</h2>
+
+    <h3>Change history</h3>
+    
+    <p>This release introduces the Guarded Control Stack (GCS) and FEAT_DoubleFault2. Some 2022 Extension features are not yet available.</p>
+    <p>The following changes are made to instruction descriptions:</p>
+    <ul>
+      <li><!--AM1395--> 'Implemented and enabled at the current Exception level' phrasing is simplified to 'implemented and enabled'.</li>
+      <li><!--AM1386--> Clarified the description of behavior of BFDOT and BFMMLA instructions when FEAT_EBF16 is implemented and FPCR.EBF is 1.</li>
+      <li><!--20332--> Clarified the descriptions of the behavior of pointer authentication instructions when the authentication fails.</li>
+      <li><!--20207--> Added FEAT_AES condition to Advanced SIMD AESMC and AESIMC instructions.</li>
+      <li><!--20171--> In the CASH and CASP compare-and-swap instruction descriptions, corrected which variants have neither acquire nor release semantics.</li>
+      <li><!--19961--> Corrected the descriptions of which parts of registers are used by the Advanced SIMD SABDL and SABDL2 instructions.</li>
+      <li><!--19505--> In the Memory Copy and Memory Set instructions, added links to Arm ARM descriptions of their CONSTRAINED UNPREDICTABLE behavior.</li>
+      <li><!--17602--> Stated where any CONSTRAINED UNPREDICTABLE behavior of alias instructions can be found.</li>
+    </ul>
+    <p>The following changes are made to the Shared Pseudocode:</p>
+    <ul>
+        <li><!--T1023--> Pseudocode changes are made to allow a PE to implement FEAT_RME without Secure state.</li>
+        <li><!--AS499--> The HaveSVE2GF() Function in the Shared Pseudocode is removed.</li>
+        <li><!--AV311--> The ElemP[] accessor is replaced with ActivePredicateElement() and PredicateElement() functions for the non-assignment form and with Elem[] for the assignment form.</li>
+        <li><!--20346--> The pseudocode function AArch64.RestrictPrediction is updated to behave as a NOP when targeting EL3, and targeting a Security state that is not implemented at EL3.</li>
+        <li><!--20319--> Modified AArch64.TLBContextEL20() and AArch64.TLBContextEL10() functions such that, when TCR_ELx.AS bit is '0', the upper 8 bits of the ASID are treated as if they are all zeros when used for allocation and matching entries in the TLB.</li>
+        <li><!--20268--> The pseudocode function AArch64.RestrictPrediction() is updated to correctly treat the VMID as RES0.</li>
+        <li><!--20210--> The functions AArch64.PhysicalSErrorSyndrome() and AArch32.PhysicalSErrorSyndrome() are updated to capture the EA syndrome field.</li>
+        <li><!--20356--> The pseudocode function S1DecodeMemAttrs() is updated to no longer decode 0b11100000 as a valid memory attribute encoding.</li>
+        <li><!--20258--> The IMPLEMENTATION_DEFINED strings "Misaligned accesses within 16 byte aligned memory but not Normal Cacheable Writeback are Atomic" and "Stage 2 synchronous External abort reports using Long-descriptor format when TTBCR_S.EAE is 0b0" are replaced with "FEAT_LSE2: access is atomic" and "Report abort using Long-descriptor format" respectively.</li>
+        <li><!--20203--> The pseudocode functions AArch64.BreakpointValueMatch() and AArch64.WatchpointByteMatch() are updated to call DebugAddrTop() to determine the top bit for address comparisons.</li>
+        <li><!--20163--> The pseudocode functions S2CombineS1MemAttrs(), S2NextWalkStateLeaf(), and S2ApplyFWBMemAttrs() are updated to assign the correct XS attribute to accesses subject to stage 2 translation.</li>
+        <li><!--20097--> The pseudocode function S2CombineS1MemAttrs() is updated to set the tags field of the resulting MemoryAttributes if either stage 1 or stage 2 assigns a Device memory type.</li>
+        <li><!--17593--> In the pseudocode function AArch64.TakeException() and the AArch32.EnterXXXMode functions() a call to CheckExceptionCatch(FALSE) is added after the calls to 'BranchTo'.</li>
+    </ul>
+    <p>Many simple clarifications and corrections are also present, but are too small to be listed here. Some minor formatting changes are supressed and not highlighted in the diff output.</p>
+<h3>Known issues</h3>
+    <p>All issues identified in the below list will be fixed in a future release.</p>
+    <ul>
+        <li><!--6406-->Triggering of Watchpoint debug events in case of SME load/store instructions or SVE contiguous vector load/store instructions when the PE is in Streaming SVE mode will be implemented.</li>
+        <li><!--20490-->The function AArch64.S2ComputePermissions(), which computes and combines the Stage 2 Base and Overlay Permissions, will be corrected to show that Top-Level stage 2 Permission Attributes only exist with MRO permissions. When MRO* is combined with any of {RO, WO, NoAccess}, the resultant permission is not MRO, and subsequently Top-Level stage 2 Permission Attribute should be set to 0.</li>
+        <li><!--20471-->The functions AArch64.WatchpointMatch() and AArch64.BreakpointMatch() will be corrected to honor the extended range of linked watchpoints and breakpoints using DBGWCR<n>_EL1.LBNX and DBGBCR<n>_EL1.LBNX respectively.</li>
+        <li><!--20470-->The function AArch64.FaultSyndrome() will be corrected to populate ESR_ELx.{WPT/WPTV} for a watchpoint exception.</li>
+        <li><!--20155--> For the following FEAT_SME and FEAT_SVE2p1 instructions, the feature conditions stated in the pseudocode are correct, but the feature conditions stated above the encoding diagrams are incomplete:
+        <ul>
+            <li>PSEL.</li>
+            <li>REVD.</li>
+            <li>BFMLSLB, BFMLSLT.</li>
+            <li>FDOT, SDOT (two-way), UDOT (two-way).</li>
+            <li>FCLAMP, SCLAMP, UCLAMP.</li>
+            <li>SQCVTN, SQCVTUN, SQRSHRN, SQRSHRUN, UQCVTN, UQRSHRN.</li>
+            <li>WHILEGE, WHILEGT, WHILEHI, WHILEHS, WHILELE, WHILELO, WHILELS, WHILELT (predicate pair).</li>
+        </ul></li>
+        <li><!--20120 -->In the following SME2 instructions, the feature conditions stated in the pseudocode are correct, but the feature conditions stated above the encoding diagrams are incomplete:
+          <ul>
+            <li>SMLALL (multiple vectors), SMLALL (multiple and single vector).</li>
+            <li>SMLSLL (multiple vectors), SMLSLL (multiple and single vector).</li>
+            <li>UMLALL (multiple vectors), UMLALL (multiple and single vector).</li>
+            <li>UMLSLL (multiple vectors), UMLSLL (multiple and single vector).</li>
+            <li>SDOT (4-way, multiple and single vector), SDOT (4-way, multiple vectors).</li>
+            <li>UDOT (4-way, multiple and single vector), UDOT (4-way, multiple vectors).</li>
+            <li>FMLA (multiple and single vector), FMLA (multiple vectors).</li>
+            <li>FMLS (multiple and single vector), FMLS (multiple vectors).</li>
+            <li>ADD (array results, multiple and single vector), ADD (array results, multiple vectors), ADD (array accumulators).</li>
+            <li>SUB (array results, multiple and single vector), SUB (array results, multiple vectors), SUB (array accumulators).</li>
+            <li>FADD.</li>
+            <li>FSUB.</li>
+          </ul>
+        </li>
+        <li><!--13919--> MSR and MRS action with unnamed registers will be clarified.</li>
+        <li><!--20346--> CFP RCTX, CPP RCTX, DVP RCTX access text will be updated to indicate when instructions are treated as a NOP.</li>
+        
+        <li>Some architectural features have limited or no descriptions in Pseudocode and are not fully covered by
+        the functional testing. Affected features are listed below:
+          <ul>
+            <li>Address translation, Instruction Cache, Data Cache System instructions.</li>
+            <li>Ordering of memory accesses.</li>
+            <li>Halting debug.</li>
+            <li>Self-hosted trace and external trace.</li>
+            <li>RAS architecture.</li>
+            <li>Statistical Profiling Extension.</li>
+            <li>Performance Monitors Extension.</li>
+            <li>Activity Monitors Extension.</li>
+            <li>Generic Interrupt Controller.</li>
+            <li>Multi-processing.</li>
+          </ul>
+        </li>
+    </ul>
+
+    <br/>

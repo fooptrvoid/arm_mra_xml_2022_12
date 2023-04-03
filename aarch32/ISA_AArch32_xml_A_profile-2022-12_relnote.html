@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>AArch32 ISA XML for A-profile Architecture (2022-12)</title>
+    <style type="text/css">
+      body {
+        font-size: small;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="text-align: center;">
+      <h1 style="text-decoration: underline;">
+       AArch32 ISA XML<br/>
+        for A-profile Architecture<br/>
+        (2022-12)
+      </h1>
+      <h1 style="text-decoration: underline;">19 December 2022</h1>
+    </div>
+    <br/>
+    <h2>Introduction</h2>
+    <p>
+      This is the <span style="font-style: italic;">2022-12</span> release
+      of the AArch32 ISA XML for A-profile Architecture.
+    <p>
+      The <a href="ISA_AArch32_xml_A_profile-2022-12/xhtml/notice.html">Proprietary Notice</a>
+      gives details of the terms and conditions under which this package
+      is provided.
+    </p>
+    <p>
+      If you have comments on the content of this package, please send
+      them by e-mail to
+      <a href="mailto:support-aarchv8@arm.com">support-aarchv8@arm.com</a>.
+      Give:
+      <ul>
+        <li>The title, "AArch32 ISA XML for A-profile Architecture.".</li>
+        <li>The version, "2022-12".</li>
+        <li>A concise explanation of your comments.</li>
+      </ul>
+    </p>
+    <h2>Contents</h2>    <table style="width: 814px; height: 70px;" border="1" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>          <td style="background-color: rgb(216, 213, 218);">This Version</td>          <td style="background-color: rgb(216, 213, 218);">2022-12</td>          <td style="background-color: rgb(216, 213, 218);"><a href="ISA_AArch32_xml_A_profile-2022-12/xhtml/index.html">[HTML]</a></td>          <td style="background-color: rgb(216, 213, 218);"><a href="ISA_AArch32_xml_A_profile-2022-12.pdf">[PDF]</a></td>          <td style="background-color: rgb(216, 213, 218);"><a href="ISA_AArch32_xml_A_profile-2022-12/index.xml">[XML]</a></td>
+        </tr>
+        <tr>          <td colspan="1" rowspan="1" style="vertical-align: top; background-color: rgb(216, 213, 218);">Change Markups<br></td>          <td style="vertical-align: top; background-color: rgb(216, 213, 218);">2022-12 from 2022-09<br></td>          <td style="vertical-align: top; background-color: rgb(216, 213, 218);"><a href="ISA_AArch32_xml_A_profile-2022-12/diff-from-ISA_AArch32_xml_A_profile-2022-09/index.html">[HTML]</a></td>
+          <td style="vertical-align: top; background-color: rgb(216, 213, 218);"><a href="ISA_AArch32_xml_A_profile-2022-12-diff-from-ISA_AArch32_xml_A_profile-2022-09.pdf">[PDF]</a></td>          <td style="vertical-align: top; background-color: rgb(216, 213, 218);"><br></td>
+        </tr>
+        <tr>          <td colspan="1" rowspan="1" style="vertical-align: top; background-color: rgb(216, 213, 218);">Previous Versions<br></td>          <td style="vertical-align: top; background-color: rgb(216, 213, 218);">2022-09<br></td>          <td style="vertical-align: top; background-color: rgb(216, 213, 218);"><a href="ISA_AArch32_xml_A_profile-2022-09/xhtml/index.html">[HTML]</a></td>          <td style="vertical-align: top; background-color: rgb(216, 213, 218);"><br></td>          <td style="vertical-align: top; background-color: rgb(216, 213, 218);"><br></td>        </tr>
+      </tbody>
+    </table>
+
+    <br/>    <h2>Product Status</h2>
+    <p>The information in this release covers multiple versions of the architecture. The content relating to different versions is given different quality ratings.</p>
+    <p>The information relating to the 2022 Extensions of the A-profile Architecture is at Alpha quality. Alpha quality means that most major features of the specification are described in this release, but some features and details might be missing.</p>
+    <p>The information relating to the rest of the Architecture is at Beta quality. Beta quality means that all major features of the specification are described, but some details might be missing.</p>
+    
+    <h2>Release notes</h2>
+
+    <h3>Change history</h3>
+    
+    <p>This release introduces the Guarded Control Stack (GCS) and FEAT_DoubleFault2. Some 2022 Extension features are not yet available.</p>
+    
+    <p>The following changes are made to instruction descriptions:</p>
+    <ul>
+        <li><!--20207--> Added FEAT_AES condition to Advanced SIMD AESMC and AESIMC instructions.</li>
+        <li><!--17602--> Stated where any CONSTRAINED UNPREDICTABLE behavior of alias instructions can be found.</li>
+    </ul>
+    
+    <p>The following changes are made to the Shared Pseudocode:</p>
+    <ul>
+      <li><!--T1023--> Pseudocode changes are made to allow a PE to implement FEAT_RME without Secure state.</li>
+      <li><!--20210--> The functions AArch64.PhysicalSErrorSyndrome() and AArch32.PhysicalSErrorSyndrome() are updated to capture the EA syndrome field.</li>
+    </ul>
+    <p>Many simple clarifications and corrections are also present, but are too small to be listed here. Some minor formatting changes are supressed and not highlighted in the diff output.</p>
+<h3>Known issues</h3>
+    <p>All issues identified in the below list will be fixed in a future release.</p>
+    <ul>
+        <li><!--17119--> There is a mismatch between the encoding for VMOVL and some other instructions and the conditions defined for the groups they appear in. The encoding is correct. The group conditions for affected instructions will be clarified.</li>
+            <li>
+      Some architectural features have limited or no descriptions in Pseudocode and are not fully covered by
+      the functional testing. Affected features are listed below:
+      <ul>
+          <li>Address translation, Instruction Cache, Data Cache System instructions.</li>
+          <li>Ordering of memory accesses.</li>
+          <li>Halting debug.</li>
+          <li>Self-hosted trace and external trace.</li>
+          <li>RAS architecture.</li>
+          <li>Statistical Profiling Extension.</li>
+          <li>Performance Monitors Extension.</li>
+          <li>Activity Monitors Extension.</li>
+          <li>Generic Interrupt Controller.</li>
+          <li>Multi-processing.</li>
+      </ul>
+  </li>
+    </ul>
+    <br/>
